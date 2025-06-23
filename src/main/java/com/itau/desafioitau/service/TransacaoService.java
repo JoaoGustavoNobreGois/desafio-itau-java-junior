@@ -19,4 +19,9 @@ public class TransacaoService {
 
         transacoes.add(t);
     }
+
+    public void limpar(){
+        transacoes.clear();
+    }
+    
 }
