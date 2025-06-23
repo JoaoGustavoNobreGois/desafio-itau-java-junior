@@ -2,11 +2,13 @@ package com.itau.desafioitau.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.itau.desafioitau.dto.EstatisticaDTO;
 import com.itau.desafioitau.model.Transacao;
 import com.itau.desafioitau.service.TransacaoService;
 
@@ -29,5 +31,10 @@ public class TransacaoController {
     @ResponseStatus(HttpStatus.OK)
     public void deleteTransacoes(){
         transacaoService.limpar();
+    }
+
+    @GetMapping("/estatistica")
+    public EstatisticaDTO getEstatisticas(){
+        return transacaoService.calcularEstatisticas();
     }
 }
